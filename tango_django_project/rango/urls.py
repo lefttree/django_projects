@@ -9,4 +9,5 @@ from rango import views
 #2nd parameter is the view invoked 
 #3rd parameter is optional, for differentiate 
 urlpatterns = patterns('',
-        url(r'^$', views.index, name='index'))
+        url(r'^$', views.index, name='index'),
+        url(r'^about/', views.about, name='about'))
