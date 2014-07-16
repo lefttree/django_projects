@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<!-- inform that we will use static media -->
+{% load static %} <!-- new line -->
+
 <html>
 	<head>
 		<title>Rango</title>
@@ -7,5 +10,6 @@
 		<h1>Rango </h1>
 		Hello <strong> {{ boldmessage }}</strong><br />
 		<a href="/rango/about">About</a><br />
+		<img src="{% static "silvus_logo_final.png" %}" alt="Picture" />
 	</body>
 </html>
