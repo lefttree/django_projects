@@ -2,12 +2,15 @@ from django.http import HttpResponse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from rango.forms import CategoryForm
+from rango.models import Category
 
 def index(request):
     #return HttpResponse("Rango says hello world! <a href='/rango/about'>About</a>")
     context = RequestContext(request)
     #a dictionary that maps template variable names with python variables
-    context_dict = {'boldmessage': 'I am bold'}
+    #query the database
+    category_list = Category.objects.order_by('-likes')[:5]
+    context_dict = {'categories': category_list}
     return render_to_response('rango/index.html', context_dict, context)
 
 def about(request):
@@ -39,3 +42,4 @@ def add_category(request):
         form = CategoryForm()
 
     return render_to_response('rango/add_category.html', {'form': form}, context)
+

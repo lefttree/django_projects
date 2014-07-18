@@ -8,7 +8,17 @@
 	</head>
 	<body>
 		<h1>Rango </h1>
-		Hello <strong> {{ boldmessage }}</strong><br />
+
+		{% if categories %}
+			<ul>
+				{% for category in categories %}
+				<li>{{ category.name }}</li>
+				{% endfor %} 
+			</ul>
+		{% else %}
+			<strong>There are no categories present.</strong>
+		{% endif %}
+
 		<a href="/rango/about">About</a><br />
 		<a href="/rango/add_category/">Add a New Category</a>
 		<img src="{% static "silvus_logo_final.png" %}" alt="Picture" />
