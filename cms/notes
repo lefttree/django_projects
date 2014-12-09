@@ -1,0 +1,4 @@
+In production, you’ll usually want to avoid having the same web server handle both Django and static media files, like style sheets or JavaScript. Because the web-server process needs to keep a copy of Django’s code and your applications in memory, it’s a waste of resources to use that same process for the simple task of serving a file off the disk.
+For now, I’m using a helper function built into Django that can serve static files, but keep in mind that you should use this only for development on your own computer. Using it on a live, deployed site will severely impact your site’s performance. When you deploy a Django application to a live web server, consult the official Django documentation at http://docs.djangoproject.com/ to see instructions for your specific server setup.
+
+
