@@ -138,6 +138,8 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'search',
     'bruno',
+    'tagging',
+    'markdown',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
