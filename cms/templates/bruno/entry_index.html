@@ -13,6 +13,7 @@
 		{% else %}
 			{{ entry.body_html|truncatewords_html:"50"|safe }}
 		{% endif %}
+		{{ entry.get_absolute_url }}
 		<p><a href="{{ entry.get_absolute_url }}">Read full entry</a></p>
 		{% endfor %}
 	</body>

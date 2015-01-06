@@ -68,4 +68,5 @@ class Entry(models.Model):
         super(Entry, self).save(force_insert, force_update)
 
     def get_absolute_url(self):
-        return "/weblog/%s/%s/" % (self.pub_date.strftime("%Y/%m/%d").lower(), self.slug)
+        return "/weblog/%s/%s/" % (self.pub_date.strftime("%Y/%b/%d").lower(), self.slug)
+        #return str(self.pub_date) + self.pub_date.strftime("%Y/%b/%d")

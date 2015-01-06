@@ -23,5 +23,6 @@ urlpatterns = patterns('',
     #url(r'^tiny_mce/(?P<path>.*)$', 'django.views.static.server',{ 'document_root': TINYMCE_PATH}),
     url(r'^search/$', 'search.views.search'),
     url(r'^weblog/$', 'bruno.views.entries_index'),
+    url(r'^weblog/(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$', 'bruno.views.entry_detail'),
     url(r'', include('django.contrib.flatpages.urls')),
 )
