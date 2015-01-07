@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 from bruno.models import Entry
 
 def entries_index(request):
@@ -17,7 +17,7 @@ def entry_detail(request, year, month, day, slug):
     pub_date = datetime.date(*date_stamp[:3])
     #look up for the entry
     context_dict = {
-                        'entry': Entry.objects.get(pub_date__year=pub_date.year, pub_date__month=pub_date.month, pub_date__day=pub_date.day, slug=slug)
+                        'entry': get_object_or_404(Entry, pub_date__year=pub_date.year, pub_date__month=pub_date.month, pub_date__day=pub_date.day, slug=slug)
                     }
     return render_to_response('bruno/entry_detail.html', context_dict)
 
