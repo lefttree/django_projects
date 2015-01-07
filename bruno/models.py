@@ -68,5 +68,13 @@ class Entry(models.Model):
         super(Entry, self).save(force_insert, force_update)
 
     def get_absolute_url(self):
-        return "/weblog/%s/%s/" % (self.pub_date.strftime("%Y/%b/%d").lower(), self.slug)
+        keyword_dic = {
+            'year': self.pub_date.strftime("%Y"),
+            'month': self.pub_date.strftime("%b").lower(),
+            'day': self.pub_date.strftime("%d"),
+            'slug': self.slug
+        }
+        return ('entry_detail', (), keyword_dic)
+        #return "/weblog/%s/%s/" % (self.pub_date.strftime("%Y/%b/%d").lower(), self.slug)
         #return str(self.pub_date) + self.pub_date.strftime("%Y/%b/%d")
+    get_absolute_url = models.permalink(get_absolute_url)
