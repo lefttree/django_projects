@@ -1,4 +1,5 @@
 from django.shortcuts import render_to_response, get_object_or_404
+from django.views.generic.dates import YearArchiveView, MonthArchiveView, WeekArchiveView
 from bruno.models import Entry
 
 def entries_index(request):
@@ -21,3 +22,22 @@ def entry_detail(request, year, month, day, slug):
                     }
     return render_to_response('bruno/entry_detail.html', context_dict)
 
+
+class EntryYearArchiveView(YearArchiveView):
+    queryset = Entry.objects.all()
+    date_field = "pub_date"
+    make_object_list = True
+    allow_future = True
+
+class EntryMonthArchiveView(MonthArchiveView):
+    queryset = Entry.objects.all()
+    date_field = "pub_date"
+    make_object_list = True
+    allow_future = True
+
+class EntryWeekArchiveView(WeekArchiveView):
+    queryset = Entry.objects.all()
+    date_field = "pub_date"
+    make_object_list = True
+    week_format = "%W"
+    allow_future = True

@@ -1,0 +1,15 @@
+<ul>
+    {% for entry in object_list %}
+        <li>{{ entry.pub_date|date:"F j, Y" }}: {{ entry.title }}</li>
+    {% endfor %}
+</ul>
+
+<p>
+    {% if previous_week %}
+        Previous Week: {{ previous_week|date:"F Y" }}
+    {% endif %}
+    {% if previous_week and next_week %}--{% endif %}
+    {% if next_week %}
+        Next week: {{ next_week|date:"F Y" }}
+    {% endif %}
+</p>

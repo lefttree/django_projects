@@ -1,12 +1,12 @@
 <html>
 	<head>
-		<h1>{{ entry.title }} </h1>
-		{% if entry.excerpt_html %}
-			<h3> {{ entry.excerpt }} </h3>
+		<h1>{{ object.title }} </h1>
+		{% if object.excerpt_html %}
+			<h3> {{ object.excerpt }} </h3>
 		{% endif %}
 	</head>
 	<body>
 		<!-- how to display the body_html?? -->
-		{{ entry.body_html }}
+		{{ object.body_html }}
 	</body>
 </html>
